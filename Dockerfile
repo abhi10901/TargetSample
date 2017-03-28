@@ -17,13 +17,13 @@ RUN alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 20000
 EXPOSE 8080
 
 #Downloading & config Elasticsearch 2.4.4
-RUN wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.4.4.noarch.rpm
-RUN sudo rpm -ivh elasticsearch-2.4.4.noarch.rpm
-RUN sudo systemctl enable elasticsearch.service
-RUN sudo service elasticsearch start
+#RUN wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.4.4.noarch.rpm
+#RUN sudo rpm -ivh elasticsearch-2.4.4.noarch.rpm
+#RUN sudo systemctl enable elasticsearch.service
+#RUN sudo service elasticsearch start
 
 #install Spring Boot artifact
-VOLUME /tmp
-ADD profile-0.0.1.jar app.jar
-RUN bash -c 'touch /app.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+#VOLUME /tmp
+#ADD profile-0.0.1.jar app.jar
+#RUN bash -c 'touch /app.jar'
+#ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
