@@ -36,7 +36,7 @@ dependencies {
 }
 
 task buildDocker(type: Docker, dependsOn: build) {
-  push = true
+  push = false
   applicationName = jar.baseName
   tag = 'abhi10901/spring-boot-elasticsearch'
   dockerfile = file('Dockerfile')
