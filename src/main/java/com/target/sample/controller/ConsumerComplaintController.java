@@ -37,6 +37,12 @@ public class ConsumerComplaintController {
 		return list;
 	}
 	
+	@GetMapping("/hello")
+	@ResponseBody
+	public String helloWorld() {
+		return "Hello World!";
+	}
+	
 	@GetMapping("/{id}")
 	@ResponseBody
 	public ConsumerComplaint getComplaintById(@PathVariable String id) {
