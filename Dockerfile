@@ -12,7 +12,7 @@ RUN apt-get update && \
 RUN wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.4.4.deb
 RUN dpkg -i elasticsearch-2.4.4.deb
 RUN update-rc.d elasticsearch defaults
-RUN service elasticsearch start
+ENTRYPOINT ["service", "elasticsearch", "start"]
 
 #install Spring Boot artifact
 VOLUME /tmp
