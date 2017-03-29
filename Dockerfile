@@ -1,8 +1,4 @@
 ##
-#
-# Dockerfile for our Elastic Search cluster.  The dockerfile is based off of
-#  https://github.com/dockerfile/elasticsearch.
-#
 
 # Pull base image.
 FROM ubuntu:14.04
@@ -32,11 +28,6 @@ RUN \
     rm -f $ES_PKG_NAME.tar.gz && \
     mv /$ES_PKG_NAME /elasticsearch
 
-# Mount elasticsearch.yml config
-# ADD config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
-
-#ENTRYPOINT  ["/elasticsearch/bin/elasticsearch"]
-
 # Expose ports.
 #   - 9200: HTTP
 #   - 9300: transport
@@ -46,7 +37,6 @@ EXPOSE 9300
 VOLUME /tmp
 ADD profile-0.0.1.jar app.jar
 RUN bash -c 'touch /app.jar'
-#ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar"]
 
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
